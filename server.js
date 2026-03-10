@@ -8,6 +8,13 @@ const authRoutes = require('./routes/auth');
 
 dotenv.config();
 
+// Check if MONGODB_URI is set
+if (!process.env.MONGODB_URI) {
+  console.error('❌ MONGODB_URI is not set in environment variables!');
+  console.error('Make sure to add MONGODB_URI in Railway Variables');
+  process.exit(1);
+}
+
 const app = express();
 
 // Connect to MongoDB
