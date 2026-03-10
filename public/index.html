@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener - Shorten Your Links</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔗 URL Shortener</h1>
+            <p>Create short, shareable links instantly</p>
+            <div class="auth-buttons" id="authButtons">
+                <a href="login.html" class="btn-auth btn-login">Login</a>
+                <a href="signup.html" class="btn-auth btn-signup">Sign Up</a>
+            </div>
+            <div class="user-section" id="userSection" style="display: none;">
+                <button id="dashboardBtn" class="btn-auth btn-dashboard">📊 Go to Dashboard</button>
+                <button id="quickLogoutBtn" class="btn-auth btn-logout">Logout</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Quick Shorten Section (Guest) -->
+            <div id="guestSection" class="quick-shorten-section">
+                <h2>⚡ Quick URL Shortener</h2>
+                <p class="section-subtitle">Create a short link without an account (limited feature)</p>
+                <div class="input-group">
+                    <input 
+                        type="url" 
+                        id="guestUrlInput" 
+                        placeholder="Paste your long URL here..." 
+                        class="url-input"
+                    >
+                    <button id="guestShortenBtn" class="btn-shorten">Shorten URL</button>
+                </div>
+                <div id="guestErrorMessage" class="error-message"></div>
+                <div id="guestLoadingMessage" class="loading-message"></div>
+            </div>
+
+            <!-- Result Section -->
+            <div id="resultSection" class="result-section" style="display: none;">
+                <div class="result-card">
+                    <h3>✨ Your Short Link is Ready!</h3>
+                    
+                    <div class="result-item">
+                        <label>Original URL:</label>
+                        <div class="url-display">
+                            <p id="originalUrlDisplay"></p>
+                        </div>
+                    </div>
+
+                    <div class="result-item">
+                        <label>Short Link:</label>
+                        <div class="short-url-container">
+                            <input 
+                                type="text" 
+                                id="shortUrlDisplay" 
+                                class="short-url-input" 
+                                readonly
+                            >
+                            <button id="copyBtn" class="btn-copy">📋 Copy</button>
+                        </div>
+                    </div>
+
+                    <div class="result-item">
+                        <label>Short Code:</label>
+                        <p id="shortCodeDisplay" class="short-code"></p>
+                    </div>
+
+                    <button id="newUrlBtn" class="btn-new">Create Another Short Link</button>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <h3>📊 How It Works</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <span class="info-icon">1️⃣</span>
+                        <h4>Paste Your URL</h4>
+                        <p>Enter your long URL in the input field above</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-icon">2️⃣</span>
+                        <h4>Generate Short Link</h4>
+                        <p>Click the "Shorten URL" button to create your short link</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-icon">3️⃣</span>
+                        <h4>Share & Enjoy</h4>
+                        <p>Copy and share your short link with anyone</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-icon">🎯</span>
+                        <h4>Auto Redirect</h4>
+                        <p>The short link automatically redirects to the original URL</p>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h3>✨ Premium Features</h3>
+                    <p class="section-subtitle">Sign up to unlock all features</p>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <span class="benefit-icon">📋</span>
+                            <h4>Dashboard</h4>
+                            <p>Manage all your shortened URLs in one place</p>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="benefit-icon">📊</span>
+                            <h4>Analytics</h4>
+                            <p>Track clicks and statistics for each URL</p>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="benefit-icon">🔒</span>
+                            <h4>Secure</h4>
+                            <p>Your URLs are safely stored in our database</p>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="benefit-icon">⚡</span>
+                            <h4>Fast</h4>
+                            <p>Lightning-fast redirects to your original links</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 URL Shortener. All rights reserved. | Made with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

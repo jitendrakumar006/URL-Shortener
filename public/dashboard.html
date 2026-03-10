@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - URL Shortener</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🔗 URL Shortener</h1>
+            </div>
+            <div class="nav-user">
+                <span id="userDisplay" class="user-info"></span>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h3>📊 Dashboard</h3>
+                <div class="stats">
+                    <div class="stat-card">
+                        <span class="stat-label">Total URLs</span>
+                        <span class="stat-value" id="totalUrls">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Total Clicks</span>
+                        <span class="stat-value" id="totalClicks">0</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Create Section -->
+            <div class="create-section">
+                <h2>✨ Create New Short Link</h2>
+                <div class="input-group">
+                    <input 
+                        type="url" 
+                        id="urlInput" 
+                        placeholder="Paste your long URL here..." 
+                        class="url-input"
+                    >
+                    <button id="shortenBtn" class="btn-shorten">Generate Short Link</button>
+                </div>
+                <div id="errorMessage" class="error-message"></div>
+                <div id="loadingMessage" class="loading-message"></div>
+            </div>
+
+            <!-- URLs List Section -->
+            <div class="urls-section">
+                <h2>📋 Your Short Links</h2>
+                <div class="filter-bar">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search your URLs..." 
+                        class="search-input"
+                    >
+                </div>
+                <div id="urlsList" class="urls-list">
+                    <p class="no-urls">No short URLs created yet. Create one above!</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- URL Card Template (Hidden) -->
+    <template id="urlCardTemplate">
+        <div class="url-card">
+            <div class="url-card-header">
+                <div class="url-info">
+                    <p class="short-url-code">
+                        <span class="code-label">Short Code:</span>
+                        <span class="code-value"></span>
+                    </p>
+                </div>
+                <div class="url-actions">
+                    <button class="btn-copy" title="Copy short URL">📋 Copy</button>
+                    <button class="btn-delete" title="Delete short URL">🗑️ Delete</button>
+                </div>
+            </div>
+
+            <div class="url-card-body">
+                <div class="url-item">
+                    <label>Original URL:</label>
+                    <p class="original-url"></p>
+                </div>
+
+                <div class="url-stats">
+                    <div class="stat">
+                        <span class="label">Clicks</span>
+                        <span class="value clicks-count">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="label">Created</span>
+                        <span class="value created-date">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="url-card-footer">
+                <input type="text" class="short-url-input" readonly>
+                <button class="btn-open" title="Open in new tab">🔗 Open</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
